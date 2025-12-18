@@ -52,6 +52,10 @@ export class NuevoGastoPage implements OnInit {
       next: () => this.router.navigate(['/home']),
       error: () => {
         this.submitting = false;
+      },
+      complete: () => {
+        //limpiar formulario
+        this.form.reset();
       }
     });
   }
