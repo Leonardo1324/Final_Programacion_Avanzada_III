@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Editar Gasto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Editar Gasto</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+    <ion-item>
+      <ion-label position="stacked">Concepto *</ion-label>
+      <ion-input formControlName="concepto" type="text"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="f['concepto'].invalid && (f['concepto'].touched || f['concepto'].dirty)">
+      <small *ngIf="f['concepto'].errors?.['required']">El concepto es obligatorio.</small>
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Monto *</ion-label>
+      <ion-input formControlName="monto" type="number"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="f['monto'].invalid && (f['monto'].touched || f['monto'].dirty)">
+      <small *ngIf="f['monto'].errors?.['required']">El monto es obligatorio.</small>
+      <small *ngIf="f['monto'].errors?.['min']">El monto debe ser mayor a 0.</small>
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Fecha *</ion-label>
+      <ion-datetime display-format="DD/MM/YYYY" formControlName="fecha"></ion-datetime>
+    </ion-item>
+    <div class="error" *ngIf="f['fecha'].invalid && (f['fecha'].touched || f['fecha'].dirty)">
+      <small *ngIf="f['fecha'].errors?.['required']">La fecha es obligatoria.</small>
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Categoría</ion-label>
+      <ion-select formControlName="categoria">
+        <ion-select-option *ngFor="let c of categorias" [value]="c">{{ c }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="actions">
+      <ion-button type="button" fill="clear" (click)="cancel()">Cancelar</ion-button>
+      <ion-button type="submit" expand="block" [disabled]="form.invalid || submitting">Guardar</ion-button>
+    </div>
+  </form>
+</ion-content>

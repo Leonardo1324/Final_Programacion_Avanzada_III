@@ -1,0 +1,37 @@
+.end-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.amount {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.muted {
+  color: var(--ion-color-medium);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.end-info ion-buttons {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+ion-badge.cat-comida {
+  --background: #f44336;
+  color: #fff;
+}
+ion-badge.cat-transporte {
+  --background: #ff9800;
+  color: #fff;
+}
+ion-badge.cat-salud {
+  --background: #4caf50;
+  color: #fff;
+}
+ion-badge.cat-ocio {
+  --background: #2196f3;
+  color: #fff;
+}
