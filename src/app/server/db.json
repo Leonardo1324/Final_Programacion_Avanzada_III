@@ -39,14 +39,6 @@
       "monto": 6200,
       "fecha": "2025-12-18",
       "pagado": false
-    },
-    {
-      "id": "6",
-      "concepto": "Mercado",
-      "categoria": "ocio",
-      "monto": 12500,
-      "fecha": "2025-12-18T15:59:00",
-      "pagado": false
     }
   ]
 }

@@ -26,7 +26,6 @@ export class HomePage implements OnInit {
 
   loadExpenses() {
     this.expenseService.getExpenses().subscribe(data => {
-      // ordenar por fecha (más reciente primero)
       this.expenses = (data || []).slice().sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
     });
   }
@@ -62,7 +61,6 @@ export class HomePage implements OnInit {
     });
   }
 
-  //logica agregar un boton para recargar pagina deslizando 
   doRefresh(event: any) {
     this.loadExpenses();  
     event.target.complete();
